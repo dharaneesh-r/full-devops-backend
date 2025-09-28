@@ -4,6 +4,7 @@ const cors = require("cors");
 const {
   getController,
   createController,
+  deleteController,
 } = require("../controller/articleController");
 
 // MIDDLEWARES
@@ -17,5 +18,6 @@ const Article = express.Router();
 
 Article.get("/article", getController);
 Article.post("/article", createController);
+Article.delete("/article/:id", deleteController);
 
 module.exports = Article;
