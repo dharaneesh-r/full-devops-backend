@@ -23,7 +23,11 @@ mongoose
   });
 
 // APP ROUTES
-
+app.use("/", (req, res) => {
+  res.status(200).json({
+    message: "DEVOPS BACKEND DEVELOPMENT",
+  });
+});
 app.use("/", Article);
 
 // PORT DETAILS
