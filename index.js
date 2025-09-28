@@ -23,7 +23,7 @@ mongoose
   });
 
 // APP ROUTES
-app.use("/", (req, res) => {
+app.use("/home", (req, res) => {
   res.status(200).json({
     message: "DEVOPS BACKEND DEVELOPMENT",
   });
