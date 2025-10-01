@@ -1,0 +1,23 @@
+name: DevOps Backend Development PipeLine
+
+on:
+  push:
+    branches: ["master", "sandbox"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node.js@v3
+        with:
+          node-version: 22
+
+      - name: Install Dependencies
+        run: npm Install
+
+      - name: Run Test
+        run: npm test

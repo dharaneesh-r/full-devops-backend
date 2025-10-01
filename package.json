@@ -11,7 +11,7 @@
     "dev": "nodemon index.js",
     "build": "echo \"No build step defined. Add Babel/TypeScript here if needed.\"",
     "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test" : "node test.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
