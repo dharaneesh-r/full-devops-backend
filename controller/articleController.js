@@ -48,6 +48,47 @@ const createController = async (req, res) => {
   }
 };
 
+// FIND BY ID CONTROLLER
+
+const findByIdController = async (req, res) => {
+  try {
+    const data = await Article.findById(req.params.id);
+    res.status(200).json({
+      status: "success",
+      message: "Specific ID got Fetched Successfully!",
+      data,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err.message,
+      error: err,
+    });
+  }
+};
+
+// UPDATE BY ID CONTROLLER
+
+const updateController = async (req, res) => {
+  try {
+    const data = await Article.findByIdAndUpdate(req.params.id, req.body, {
+      runValidators: true,
+      new: true,
+    });
+    res.status(200).json({
+      status: "true",
+      message: "data updated successfully",
+      data,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: "fail",
+      message: err.message,
+      error: err,
+    });
+  }
+};
+
 // DELETE CONTROLLER
 
 const deleteController = async (req, res) => {
@@ -75,4 +116,10 @@ const deleteController = async (req, res) => {
   }
 };
 
-module.exports = { getController, createController, deleteController };
+module.exports = {
+  getController,
+  createController,
+  deleteController,
+  findByIdController,
+  updateController,
+};
